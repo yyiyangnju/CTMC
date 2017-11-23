@@ -1,0 +1,25 @@
+solve1=function(M){
+  r=dim(M)[1]
+  c=dim(M)[2]
+  Q=diag(M)
+  M1=M
+  M1[,c]=rep(1,r)
+  b=c(rep(0,c-1),1)
+  p=solve(t(M1),b)
+  M=-M/sum(p*Q)
+  return(list(p,M))
+}
+A1=matrix(c(-2,1,1,1,-2,1,1,1,-2),3,byrow=T)
+y1=solve1(A1)
+A2=matrix(c(-11,10,1,1,-2,1,1,10,-11),3,byrow=T)
+y2=solve1(A2)
+A3=matrix(c(-20,10,10,1,-2,1,1,1,-2),3,byrow=T)
+y3=solve1(A3)
+A4=matrix(c(-11,10,1,10,-11,1,1,1,-2),3,byrow=T)
+y4=solve1(A4)
+A5=matrix(c(-20,10,10,10,-11,1,10,1,-11),3,byrow=T)
+y5=solve1(A5)
+A6=matrix(c(-20,10,10,1,-2,1,1,10,-11),3,byrow=T)
+y6=solve1(A6)
+A7=matrix(c(-20,10,10,1,-11,10,1,1,-2),3,byrow=T)
+y7=solve1(A7)
